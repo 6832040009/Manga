@@ -37,37 +37,70 @@
 
 ---
 
-## 🚀 วิธีการติดตั้งและเปิดใช้งาน
+## ☁️ วิธีการ Deploy บน AWS EC2 (ดึงโค้ดผ่าน GitHub)
 
-### วิธีที่ 1: ดับเบิลคลิกไฟล์ `run.bat` (ง่ายที่สุด)
-ดับเบิลคลิกที่ไฟล์ `run.bat` ในโฟลเดอร์ ระบบจะค้นหา Node.js และเปิดหน้าเว็บที่ `http://127.0.0.1:5000` ให้อัตโนมัติ
-
-### วิธีที่ 2: รันผ่านคำสั่ง Terminal (Node.js)
-```bash
-node server.js
-```
-เปิดเบราว์เซอร์แล้วไปที่: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+### ขั้นตอนที่ 1: ตั้งค่า AWS Security Group (บน AWS Console)
+ก่อนเริ่ม ให้เข้าไปที่ **AWS EC2 Console** -> **Security Groups** ของ Instance ที่เช่าไว้ แล้วเปิด **Inbound Rules**:
+| Type | Protocol | Port Range | Source | คำอธิบาย |
+| :--- | :--- | :--- | :--- | :--- |
+| **SSH** | TCP | `22` | `0.0.0.0/0` (หรือ My IP) | สำหรับเชื่อมต่อเข้าเซิร์ฟเวอร์ |
+| **HTTP** | TCP | `80` | `0.0.0.0/0` | สำหรับให้ผู้ใช้ทั่วไปเข้าเว็บ |
+| **HTTPS** | TCP | `443` | `0.0.0.0/0` | สำหรับ SSL / HTTPS (ถ้ามี) |
 
 ---
 
-## 📁 โครงสร้างโปรเจกต์
-
-```text
-├── data/
-│   └── manga_data.json       # ข้อมูลมังงะ ตอน และประวัติ (บันทึกอัตโนมัติ)
-├── wwwroot/                  # ไฟล์ Frontend Web Application
-│   ├── css/
-│   │   └── style.css         # ดีไซน์ Dark Theme ระดับพรีเมียม
-│   ├── js/
-│   │   ├── api.js            # API Client + Authentication Token
-│   │   └── app.js            # ระบบควบคุม SPA, Viewer, Filters, Admin
-│   ├── uploads/              # โฟลเดอร์เก็บรูปภาพที่แอดมินอัปโหลด
-│   │   ├── covers/           # รูปภาพหน้าปก
-│   │   └── chapters/         # รูปภาพหน้าการ์ตูนแต่ละตอน
-│   └── index.html            # โครงสร้างหน้าเว็บหลัก (SPA)
-├── server.js                 # HTTP & REST API Server (Node.js)
-├── Program.cs                # ASP.NET Core Web API (.NET 10)
-├── MangaReaderApp.csproj     # .NET Project Configuration
-├── run.bat                   # สคริปต์รันเซิร์ฟเวอร์แบบคลิกเดียว
-└── README.md                 # คู่มือการใช้งานระบบ
+### ขั้นตอนที่ 2: เชื่อมต่อ SSH เข้าเครื่อง AWS
+เปิดโปรแกรม Terminal หรือ PowerShell ในคอมพิวเตอร์ของคุณ:
+```bash
+ssh -i "your-key.pem" ubuntu@<YOUR-AWS-PUBLIC-IP>
 ```
+*(ถ้าใช้ Amazon Linux ให้เปลี่ยน `ubuntu` เป็น `ec2-user`)*
+
+---
+
+### ขั้นตอนที่ 3: สั่ง Deploy อัตโนมัติในคำสั่งเดียว (One-Click Deploy)
+รันคำสั่งนี้บนเครื่อง AWS Terminal:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/6832040009/Manga/main/deploy.sh | bash
+```
+
+**สิ่งที่สคริปต์จะทำให้โดยอัตโนมัติ:**
+1. ติดตั้ง Node.js 20 LTS, Git, PM2 และ Nginx
+2. Clone โค้ดล่าสุดจาก GitHub (`https://github.com/6832040009/Manga.git`) ไปไว้ที่ `/var/www/manga`
+3. ตั้งค่า PM2 ให้เซิร์ฟเวอร์เปิดทำงานตลอดเวลา 24/7 และเปิดใหม่อัตโนมัติเมื่อเครื่อง Restart
+4. ตั้งค่า Nginx Reverse Proxy (Port 80 -> Port 5000)
+5. เปิด Firewall และแสดง URL พร้อมใช้งานทันที!
+
+---
+
+### หรือ วิธีที่ 4: Deploy ด้วย Docker (ทางเลือก)
+หากเครื่อง AWS มี Docker ติดตั้งอยู่แล้ว สามารถรันด้วย Docker Compose ได้ทันที:
+```bash
+git clone https://github.com/6832040009/Manga.git
+cd Manga
+sudo docker compose up -d --build
+```
+
+---
+
+## 🛠️ คำสั่งการจัดการบนเซิร์ฟเวอร์ AWS (เมื่อต้องการอัปเดต)
+
+- **อัปเดตโค้ดเวอร์ชันล่าสุดจาก GitHub**:
+  ```bash
+  cd /var/www/manga
+  git pull origin main
+  pm2 reload manga-app
+  ```
+- **ดูบันทึกการทำงาน (Logs)**:
+  ```bash
+  pm2 logs manga-app
+  ```
+- **ตรวจสอบสถานะเซิร์ฟเวอร์**:
+  ```bash
+  pm2 status
+  ```
+- **รีสตาร์ทแอปพลิเคชัน**:
+  ```bash
+  pm2 restart manga-app
+  ```

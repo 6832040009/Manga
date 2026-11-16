@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  manga-app:
+    build: .
+    container_name: mangaverse-app
+    restart: always
+    ports:
+      - "80:5000"
+    volumes:
+      - ./data:/app/data
+      - ./wwwroot/uploads:/app/wwwroot/uploads
+    environment:
+      - PORT=5000
+      - HOST=0.0.0.0
