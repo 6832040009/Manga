@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangaVerse - เว็บไซต์อ่านมังงะและมังฮวาออนไลน์</title>
+  <meta name="description" content="อ่านมังงะและมังฮวาแปลไทย อัปเดตตอนใหม่ทุกวัน ภาพคมชัด โหลดไว ไม่มีโฆษณากวนใจ">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      font-family: 'Prompt', 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Navbar -->
+    <header class="navbar" id="appNavbar">
+      <div class="navbar-inner">
+        <a href="#/" class="nav-brand">
+          <div class="brand-icon">
+            <i data-lucide="book-open" style="color: white; width: 20px; height: 20px;"></i>
+          </div>
+          <span>Manga<span class="brand-gradient">Verse</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#/" class="nav-link active" data-nav="all">
+            <i data-lucide="compass" style="width: 16px; height: 16px;"></i>
+            <span>ทั้งหมด</span>
+          </a>
+          <a href="#/type/Manhwa" class="nav-link" data-nav="manhwa">
+            <i data-lucide="layers" style="width: 16px; height: 16px;"></i>
+            <span>มังฮวา</span>
+          </a>
+          <a href="#/type/Manga" class="nav-link" data-nav="manga">
+            <i data-lucide="book" style="width: 16px; height: 16px;"></i>
+            <span>มังงะ</span>
+          </a>
+          <a href="#/bookmarks" class="nav-link" data-nav="bookmarks">
+            <i data-lucide="bookmark" style="width: 16px; height: 16px;"></i>
+            <span>ที่คั่นไว้</span>
+          </a>
+        </nav>
+
+        <div class="nav-search">
+          <i data-lucide="search" class="search-icon" style="width: 16px; height: 16px;"></i>
+          <input type="text" id="searchInput" placeholder="ค้นหามังงะ / มังฮวา / ผู้แต่ง...">
+          <button class="clear-btn" id="searchClearBtn">
+            <i data-lucide="x" style="width: 14px; height: 14px;"></i>
+          </button>
+        </div>
+
+        <div class="nav-actions" id="authNavArea">
+          <!-- Dynamically populated: Guest login button or Admin menu -->
+          <button class="btn btn-secondary btn-sm" id="openLoginModalBtn">
+            <i data-lucide="lock" style="width: 14px; height: 14px;"></i>
+            <span>Admin Login</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Root -->
+    <main class="main-content" id="mainContent">
+      <!-- Loading indicator initially -->
+      <div style="display: flex; justify-content: center; align-items: center; min-height: 50vh;">
+        <div class="loading-spinner"></div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="appFooter">
+      <div class="footer-inner">
+        <div>
+          <div style="font-weight: 700; font-size: 1.1rem; color: var(--text-primary); margin-bottom: 4px;">
+            Manga<span class="brand-gradient">Verse</span>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted);">
+            เว็บไซต์อ่านมังงะและมังฮวาออนไลน์ รองรับการอ่านทั้งแนวตั้ง Webtoon และแนวนอน Manga
+          </p>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center; font-size: 0.85rem;">
+          <a href="#/" style="color: var(--text-secondary);">หน้าแรก</a>
+          <span>•</span>
+          <a href="#/type/Manhwa" style="color: var(--text-secondary);">มังฮวา</a>
+          <span>•</span>
+          <a href="#/type/Manga" style="color: var(--text-secondary);">มังงะ</a>
+          <span>•</span>
+          <button id="footerAdminBtn" style="color: var(--text-muted); font-size: 0.8rem; text-decoration: underline;">
+            ระบบแอดมิน (Admin)
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. Admin Login Modal -->
+  <div class="modal-backdrop" id="loginModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="background: rgba(139,92,246,0.2); padding: 8px; border-radius: 8px; color: var(--accent-primary);">
+            <i data-lucide="shield-check" style="width: 22px; height: 22px;"></i>
+          </div>
+          <div>
+            <h2>เข้าสู่ระบบผู้ดูแลระบบ (Admin)</h2>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">เฉพาะผู้ดูแลระบบเท่านั้นที่จะสามารถเพิ่ม/แก้ไขมังงะได้</div>
+          </div>
+        </div>
+        <button class="btn-icon closeModalBtn">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <form id="loginForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="adminUsername">ชื่อผู้ใช้ (Username)</label>
+            <input type="text" id="adminUsername" class="form-control" placeholder="ป้อนชื่อผู้ใช้แอดมิน (prct)" required autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label for="adminPassword">รหัสผ่าน (Password)</label>
+            <input type="password" id="adminPassword" class="form-control" placeholder="ป้อนรหัสผ่าน (prct2522)" required autocomplete="current-password">
+          </div>
+          <div id="loginErrorMsg" style="display: none; color: #ef4444; font-size: 0.85rem; padding: 8px 12px; background: rgba(239,68,68,0.1); border-radius: 6px; border: 1px solid rgba(239,68,68,0.2);">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary closeModalBtn">ยกเลิก</button>
+          <button type="submit" class="btn btn-primary" id="loginSubmitBtn">
+            <i data-lucide="log-in" style="width: 16px; height: 16px;"></i>
+            <span>เข้าสู่ระบบ</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Admin Dashboard Modal (List and Manage All Manga/Manhwa) -->
+  <div class="modal-backdrop" id="adminDashboardModal">
+    <div class="modal-content modal-xl">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div class="badge badge-admin">
+            <i data-lucide="crown" style="width: 16px; height: 16px;"></i>
+            <span>ADMIN: prct</span>
+          </div>
+          <h2>แผงควบคุมระบบจัดการมังงะและมังฮวา</h2>
+        </div>
+        <button class="btn-icon closeModalBtn">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding-top: 16px;">
+        <!-- Top Stats in Admin -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
+          <div style="background: var(--bg-card); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">เรื่องทั้งหมด</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary);" id="adminStatTotal">0</div>
+          </div>
+          <div style="background: var(--bg-card); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: #ec4899;">มังฮวา (Manhwa)</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: #ec4899;" id="adminStatManhwa">0</div>
+          </div>
+          <div style="background: var(--bg-card); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: #f59e0b;">มังงะ (Manga)</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: #f59e0b;" id="adminStatManga">0</div>
+          </div>
+          <div style="background: var(--bg-card); padding: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="font-size: 0.8rem; color: var(--accent-secondary);">ตอนทั้งหมด</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent-secondary);" id="adminStatChapters">0</div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+          <div style="font-weight: 700; font-size: 1.05rem;">รายการมังงะและมังฮวาในระบบ</div>
+          <button class="btn btn-primary" id="openAddMangaModalBtn">
+            <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
+            <span>+ เพิ่มมังงะ/มังฮวาเรื่องใหม่</span>
+          </button>
+        </div>
+
+        <!-- Table / Cards of Manga for Admin -->
+        <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; background: var(--bg-card);">
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+              <thead style="background: var(--bg-tertiary); border-bottom: 1px solid var(--border-color); color: var(--text-secondary);">
+                <tr>
+                  <th style="padding: 12px 16px;">ปก</th>
+                  <th style="padding: 12px 16px;">ชื่อเรื่อง</th>
+                  <th style="padding: 12px 16px;">ประเภท</th>
+                  <th style="padding: 12px 16px;">สถานะ</th>
+                  <th style="padding: 12px 16px;">ตอน</th>
+                  <th style="padding: 12px 16px;">ยอดอ่าน</th>
+                  <th style="padding: 12px 16px; text-align: right;">การจัดการ</th>
+                </tr>
+              </thead>
+              <tbody id="adminMangaTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Add / Edit Manga Modal -->
+  <div class="modal-backdrop" id="mangaFormModal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h2 id="mangaFormTitle">เพิ่มมังงะ/มังฮวาใหม่</h2>
+        <button class="btn-icon closeModalBtn">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <form id="mangaForm">
+        <input type="hidden" id="mangaFormId">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mangaTitleInput">ชื่อเรื่อง (Title) *</label>
+              <input type="text" id="mangaTitleInput" class="form-control" placeholder="เช่น Solo Leveling หรือ วันพีซ" required>
+            </div>
+            <div class="form-group">
+              <label for="mangaOriginalTitleInput">ชื่อภาษาเดิม (Original / Alternative Title)</label>
+              <input type="text" id="mangaOriginalTitleInput" class="form-control" placeholder="เช่น 나 혼자만 레벨업 หรือ One Piece">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mangaTypeSelect">ประเภท (Type) *</label>
+              <select id="mangaTypeSelect" class="form-control">
+                <option value="Manhwa">มังฮวา (Manhwa / เกาหลี / อ่านแนวตั้ง)</option>
+                <option value="Manga">มังงะ (Manga / ญี่ปุ่น / อ่านทีละหน้า)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mangaStatusSelect">สถานะเรื่อง (Status) *</label>
+              <select id="mangaStatusSelect" class="form-control">
+                <option value="Ongoing">กำลังดำเนินเรื่อง (Ongoing)</option>
+                <option value="Completed">จบแล้ว (Completed)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mangaAuthorInput">ผู้แต่ง (Author)</label>
+              <input type="text" id="mangaAuthorInput" class="form-control" placeholder="เช่น Chugong หรือ Oda Eiichiro">
+            </div>
+            <div class="form-group">
+              <label for="mangaArtistInput">ผู้วาดภาพ (Artist)</label>
+              <input type="text" id="mangaArtistInput" class="form-control" placeholder="เช่น DUBU หรือ Redice Studio">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mangaCategoriesInput">หมวดหมู่ / แท็ก (คั่นด้วยจุลภาค หรือ Enter)</label>
+            <input type="text" id="mangaCategoriesInput" class="form-control" placeholder="เช่น แอ็กชัน, แฟนตาซี, เกิดใหม่, เอาชีวิตรอด">
+          </div>
+
+          <!-- Cover Image Option (URL or Upload) -->
+          <div class="form-group">
+            <label>รูปภาพหน้าปก (Cover Image) *</label>
+            <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+              <input type="text" id="mangaCoverUrlInput" class="form-control" placeholder="ใส่ URL รูปภาพ หรือกดปุ่มอัปโหลดรูป..." required>
+              <label class="btn btn-secondary" style="margin: 0; cursor: pointer; flex-shrink: 0;">
+                <i data-lucide="upload" style="width: 16px; height: 16px;"></i>
+                <span>อัปโหลดรูป</span>
+                <input type="file" id="coverFileInput" accept="image/*" style="display: none;">
+              </label>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div id="coverPreviewContainer" style="width: 70px; height: 95px; border-radius: 6px; overflow: hidden; background: #222; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--text-muted);">
+                <span>พรีวิวปก</span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">
+                แนะนำรูปภาพแนวตั้งสัดส่วน 3:4 เช่น 600x800 พิกเซล
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mangaBannerUrlInput">รูปภาพแบนเนอร์พื้นหลัง (Banner Image - ใส่หรือไม่ใส่ก็ได้)</label>
+            <input type="text" id="mangaBannerUrlInput" class="form-control" placeholder="URL รูปแนวนอนสำหรับแบนเนอร์ด้านบน">
+          </div>
+
+          <div class="form-group">
+            <label for="mangaDescInput">เรื่องย่อ (Description)</label>
+            <textarea id="mangaDescInput" class="form-control" rows="4" placeholder="เขียนเรื่องย่อของมังงะหรือมังฮวาเรื่องนี้..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary closeModalBtn">ยกเลิก</button>
+          <button type="submit" class="btn btn-primary" id="saveMangaBtn">
+            <i data-lucide="check" style="width: 16px; height: 16px;"></i>
+            <span>บันทึกข้อมูลเรื่อง</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Chapters Manager Modal (For a specific Manga) -->
+  <div class="modal-backdrop" id="chapterManagerModal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <div>
+          <div style="font-size: 0.82rem; color: var(--accent-secondary);" id="chapterManagerSeriesType">MANHWA</div>
+          <h2 id="chapterManagerTitle">จัดการตอน: [ชื่อเรื่อง]</h2>
+        </div>
+        <button class="btn-icon closeModalBtn">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <div style="font-weight: 600; font-size: 0.95rem;">
+            รายชื่อตอนทั้งหมด (<span id="chapterCountDisplay">0</span> ตอน)
+          </div>
+          <button class="btn btn-primary btn-sm" id="openAddChapterModalBtn">
+            <i data-lucide="plus" style="width: 14px; height: 14px;"></i>
+            <span>+ เพิ่มตอนใหม่</span>
+          </button>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; max-height: 450px; overflow-y: auto;" id="adminChapterList">
+          <!-- Dynamically populated chapters -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModalBtn">ปิด</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Add / Edit Chapter Form Modal -->
+  <div class="modal-backdrop" id="chapterFormModal">
+    <div class="modal-content modal-lg">
+      <div class="modal-header">
+        <h2 id="chapterFormTitle">เพิ่มตอนใหม่</h2>
+        <button class="btn-icon closeSubModalBtn">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <form id="chapterForm">
+        <input type="hidden" id="chapterFormMangaId">
+        <input type="hidden" id="chapterFormId">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="chapterNumberInput">เลขตอน (Chapter Number) *</label>
+              <input type="text" id="chapterNumberInput" class="form-control" placeholder="เช่น 1 หรือ 1.5 หรือ ตอนที่ 2" required>
+            </div>
+            <div class="form-group">
+              <label for="chapterTitleInput">ชื่อตอน (Title - ใส่หรือไม่ก็ได้)</label>
+              <input type="text" id="chapterTitleInput" class="form-control" placeholder="เช่น จุดเริ่มต้น, บัญญัติสามประการ">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>รูปภาพหน้าการ์ตูน (Manga Pages) *</label>
+            <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
+              คุณสามารถอัปโหลดไฟล์รูปภาพหน้าการ์ตูนหลายๆ ไฟล์จากเครื่อง หรือวาง URL รูปภาพทีละบรรทัดได้
+            </div>
+
+            <!-- Upload Area -->
+            <div class="upload-area" id="chapterUploadArea">
+              <i data-lucide="cloud-upload" style="width: 36px; height: 36px; color: var(--accent-primary); margin-bottom: 8px;"></i>
+              <div style="font-weight: 600; font-size: 0.95rem;">คลิกเพื่อเลือกไฟล์รูปภาพ หรือลากไฟล์มาวางที่นี่</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">รองรับ JPG, PNG, WEBP, GIF (เลือกได้หลายไฟล์พร้อมกัน)</div>
+              <input type="file" id="chapterFilesInput" accept="image/*" multiple style="display: none;">
+            </div>
+
+            <div style="margin: 12px 0 6px; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">
+              หรือ วาง URL รูปภาพหน้าการ์ตูน (1 บรรทัด ต่อ 1 หน้า):
+            </div>
+            <textarea id="chapterUrlsTextarea" class="form-control" rows="4" placeholder="https://example.com/page1.jpg&#10;https://example.com/page2.jpg&#10;https://example.com/page3.jpg"></textarea>
+
+            <!-- Preview Pages List -->
+            <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.85rem; font-weight: 600;">ตัวอย่างหน้าการ์ตูน (<span id="pageCountDisplay">0</span> หน้า)</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="clearAllPagesBtn" style="color: #ef4444;">
+                <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>
+                <span>ล้างหน้าทั้งหมด</span>
+              </button>
+            </div>
+            <div class="pages-preview-grid" id="chapterPagesPreview">
+              <!-- Dynamically populated page thumbnails -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary closeSubModalBtn">ยกเลิก</button>
+          <button type="submit" class="btn btn-primary" id="saveChapterBtn">
+            <i data-lucide="check" style="width: 16px; height: 16px;"></i>
+            <span>บันทึกตอน</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- App Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

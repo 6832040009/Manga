@@ -1,0 +1,301 @@
+[
+  {
+    "id": "nano-machine",
+    "title": "Nano Machine",
+    "originalTitle": "?? ??",
+    "type": "Manhwa",
+    "coverUrl": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600",
+    "bannerUrl": "",
+    "description": "???????????????????? ???????????????????????????????????????????????",
+    "author": "Hanjung Wolya",
+    "artist": "GGBG",
+    "status": "Ongoing",
+    "categories": [
+      "???????",
+      "??????????",
+      "???????"
+    ],
+    "rating": 5,
+    "views": 6,
+    "createdAt": "2026-11-16T04:11:46.905Z",
+    "updatedAt": "2026-11-16T04:11:46.910Z",
+    "chapters": [
+      {
+        "id": "ch-mwiqyb8e-m1n2",
+        "mangaId": "nano-machine",
+        "chapterNumber": "1",
+        "title": "??????????????????",
+        "pages": [
+          "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800",
+          "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800"
+        ],
+        "createdAt": "2026-11-16T04:11:46.910Z",
+        "updatedAt": "2026-11-16T04:11:46.910Z"
+      }
+    ]
+  },
+  {
+    "id": "solo-leveling",
+    "title": "Solo Leveling",
+    "originalTitle": "나 혼자만 레벨업",
+    "type": "Manhwa",
+    "coverUrl": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600&auto=format&fit=crop&q=80",
+    "bannerUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1400&auto=format&fit=crop&q=80",
+    "description": "ในโลกที่เกตเชื่อมต่อมิติเปิดออก สัตว์ประหลาดเริ่มบุกโจมตี และมนุษย์กลุ่มหนึ่งได้รับพลังพิเศษที่เรียกว่า 'ฮันเตอร์' ซองจินอู ฮันเตอร์ระดับ E ที่อ่อนแอที่สุด ได้พบกับดันเจี้ยนซ้อนดันเจี้ยนสุดอันตราย และได้รับระบบภารกิจปริศนาที่ทำให้เขาสามารถ 'เลเวลอัป' ได้เพียงคนเดียว!",
+    "author": "Chugong",
+    "artist": "DUBU (REDICE STUDIO)",
+    "status": "Completed",
+    "categories": [
+      "แอ็กชัน",
+      "แฟนตาซี",
+      "พลังพิเศษ",
+      "เอาชีวิตรอด",
+      "ดันเจี้ยน"
+    ],
+    "rating": 4.9,
+    "views": 45280,
+    "createdAt": "2026-08-18T04:09:49.136Z",
+    "updatedAt": "2026-11-16T02:09:49.136Z",
+    "chapters": [
+      {
+        "id": "sl-ch-01",
+        "mangaId": "solo-leveling",
+        "chapterNumber": "1",
+        "title": "ฮันเตอร์ที่อ่อนแอที่สุดในโลก",
+        "pages": [
+          "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop&q=80"
+        ],
+        "createdAt": "2026-08-18T04:09:49.136Z",
+        "updatedAt": "2026-08-18T04:09:49.136Z"
+      },
+      {
+        "id": "sl-ch-02",
+        "mangaId": "solo-leveling",
+        "chapterNumber": "2",
+        "title": "วิหารลับสองชั้น",
+        "pages": [
+          "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1514539079130-25950c84af65?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800&auto=format&fit=crop&q=80"
+        ],
+        "createdAt": "2026-09-17T04:09:49.136Z",
+        "updatedAt": "2026-09-17T04:09:49.136Z"
+      },
+      {
+        "id": "sl-ch-03",
+        "mangaId": "solo-leveling",
+        "chapterNumber": "3",
+        "title": "บัญญัติสามประการ",
+        "pages": [
+          "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&auto=format&fit=crop&q=80"
+        ],
+        "createdAt": "2026-11-11T04:09:49.136Z",
+        "updatedAt": "2026-11-11T04:09:49.136Z"
+      }
+    ]
+  },
+  {
+    "id": "omniscient-reader",
+    "title": "Omniscient Reader's Viewpoint",
+    "originalTitle": "전지적 독자 시점",
+    "type": "Manhwa",
+    "coverUrl": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80",
+    "bannerUrl": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1400&auto=format&fit=crop&q=80",
+    "description": "'คิมดกจา' พนักงานบริษัทธรรมดา ผู้เป็นนักอ่านคนเดียวที่อ่านนิยายเว็บความยาวกว่า 3,149 ตอนจนจบ ทันทีที่อ่านตอนอวสาน โลกความเป็นจริงก็พังทลายลงและกลายเป็นโลกแห่งหายนะตามในนิยายทุกประการ โดยมีเพียงเขาคนเดียวเท่านั้นที่รู้จุดจบของโลกใบนี้!",
+    "author": "sing N song",
+    "artist": "Sleepy-C (REDICE STUDIO)",
+    "status": "Ongoing",
+    "categories": [
+      "แฟนตาซี",
+      "เอาชีวิตรอด",
+      "ดราม่า",
+      "ไซไฟ",
+      "จิตวิทยา"
+    ],
+    "rating": 4.95,
+    "views": 38900,
+    "createdAt": "2026-09-17T04:09:49.136Z",
+    "updatedAt": "2026-11-15T23:09:49.136Z",
+    "chapters": [
+      {
+        "id": "orv-ch-01",
+        "mangaId": "omniscient-reader",
+        "chapterNumber": "1",
+        "title": "จุดเริ่มต้นของบทนำ",
+        "pages": [
+          "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&auto=format&fit=crop&q=80"
+        ],
+        "createdAt": "2026-09-17T04:09:49.136Z",
+        "updatedAt": "2026-09-17T04:09:49.136Z"
+      },
+      {
+        "id": "orv-ch-02",
+        "mangaId": "omniscient-reader",
+        "chapterNumber": "2",
+        "title": "สถานการณ์หลักเริ่มต้น",
+        "pages": [
+          "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&auto=format&fit=crop&q=80"
+        ],
+        "createdAt": "2026-11-14T04:09:49.136Z",
+        "updatedAt": "2026-11-14T04:09:49.136Z"
+      }
+    ]
+  },
+  {
+    "id": "one-piece",
+    "title": "One Piece",
+    "originalTitle": "ワンピース",
+    "type": "Manga",
+    "coverUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80",
+    "bannerUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400&auto=format&fit=crop&q=80",
+    "description": "ยุคสมัยแห่งโจรสลัดได้เริ่มต้นขึ้นเมื่อราชาโจรสลัด โกล ดี. โรเจอร์ ได้ทิ้งสมบัติลับ 'วันพีซ' ไว้ ณ จุดสิ้นสุดของแกรนด์ไลน์ มังกี้ ดี. ลูฟี่ เด็กหนุ่มผู้มีร่างกายเป็นยาง ออกเดินทางสู่ท้องทะเลกว้างเพื่อรวบรวมพรรคพวกและมุ่งสู่การเป็นราชาโจรสลัดคนต่อไป!",
+    "author": "Eiichiro Oda",
+    "artist": "Eiichiro Oda",
+    "status": "Ongoing",
+    "categories": [
+      "แอ็กชัน",
+      "ผจญภัย",
+      "มิตรภาพ",
+      "คอมเมดี้"
+    ],
+    "rating": 4.98,
+    "views": 98120,
+    "createdAt": "2025-11-16T04:09:49.136Z",
+    "updatedAt": "2026-11-15T04:09:49.136Z",
+    "chapters": [
+      {
+        "id": "op-ch-01",
+        "mangaId": "one-piece",
+        "chapterNumber": "1",
+        "title": "รุ่งอรุณแห่งการผจญภัย",
+        "pages": [
+          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&auto=format&fit=crop&q=80"
+        ],
+        "createdAt": "2025-11-16T04:09:49.136Z",
+        "updatedAt": "2025-11-16T04:09:49.136Z"
+      }
+    ]
+  },
+  {
+    "id": "tower-of-god",
+    "title": "Tower of God",
+    "originalTitle": "신의 탑",
+    "type": "Manhwa",
+    "coverUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+    "bannerUrl": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1400&auto=format&fit=crop&q=80",
+    "description": "คุณปรารถนาสิ่งใด? เงินทอง เกียรติยศ อำนาจ หรือการล้างแค้น? สิ่งใดก็ตามที่คุณปรารถนา ทั้งหมดนั้นอยู่ที่ยอดหอคอยแห่งนี้ เรื่องราวของ 'พัมที่ยี่สิบห้า' เด็กหนุ่มผู้ก้าวเข้าสู่หอคอยอันลึกลับเพื่อตามหาเด็กสาวเพียงคนเดียวที่เป็นโลกทั้งใบของเขา",
+    "author": "SIU",
+    "artist": "SIU",
+    "status": "Ongoing",
+    "categories": [
+      "แฟนตาซี",
+      "ผจญภัย",
+      "ลึกลับ",
+      "ดราม่า",
+      "มิตรภาพ"
+    ],
+    "rating": 4.85,
+    "views": 31202,
+    "createdAt": "2026-07-19T04:09:49.136Z",
+    "updatedAt": "2026-11-13T04:09:49.136Z",
+    "chapters": [
+      {
+        "id": "tog-ch-01",
+        "mangaId": "tower-of-god",
+        "chapterNumber": "1",
+        "title": "ชั้นที่ 1: หัวแถวของหอคอย",
+        "pages": [
+          "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800&auto=format&fit=crop&q=80"
+        ],
+        "createdAt": "2026-07-19T04:09:49.136Z",
+        "updatedAt": "2026-07-19T04:09:49.136Z"
+      }
+    ]
+  },
+  {
+    "id": "jujutsu-kaisen",
+    "title": "Jujutsu Kaisen",
+    "originalTitle": "呪術廻戦",
+    "type": "Manga",
+    "coverUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=600&auto=format&fit=crop&q=80",
+    "bannerUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1400&auto=format&fit=crop&q=80",
+    "description": "อิตาโดริ ยูจิ เด็กหนุ่มมัธยมปลายธรรมดาที่มีสมรรถภาพทางกายเหนือมนุษย์ ได้กลืนนิ้วต้องสาปของ 'เรียวเมน สุคุนะ' ราชาแห่งคำสาป เพื่อช่วยเหลือเพื่อนจากวิญญาณคำสาป ทำให้เขาต้องเข้าสู่วงการไสยเวทเพื่อกำจัดคำสาปและเผชิญหน้ากับชะตากรรมที่หลีกเลี่ยงไม่ได้",
+    "author": "Gege Akutami",
+    "artist": "Gege Akutami",
+    "status": "Completed",
+    "categories": [
+      "แอ็กชัน",
+      "เหนือธรรมชาติ",
+      "ดาร์กแฟนตาซี",
+      "โรงเรียน"
+    ],
+    "rating": 4.88,
+    "views": 51201,
+    "createdAt": "2026-06-19T04:09:49.136Z",
+    "updatedAt": "2026-11-06T04:09:49.136Z",
+    "chapters": [
+      {
+        "id": "jjk-ch-01",
+        "mangaId": "jujutsu-kaisen",
+        "chapterNumber": "1",
+        "title": "เรียวเมน สุคุนะ",
+        "pages": [
+          "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&auto=format&fit=crop&q=80"
+        ],
+        "createdAt": "2026-06-19T04:09:49.136Z",
+        "updatedAt": "2026-06-19T04:09:49.136Z"
+      }
+    ]
+  },
+  {
+    "id": "the-beginning-after-the-end",
+    "title": "The Beginning After The End",
+    "originalTitle": "끝이 아닌 시작",
+    "type": "Manhwa",
+    "coverUrl": "https://images.unsplash.com/photo-1514539079130-25950c84af65?w=600&auto=format&fit=crop&q=80",
+    "bannerUrl": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1400&auto=format&fit=crop&q=80",
+    "description": "กษัตริย์เกรย์ผู้มีอำนาจและความมั่งคั่งอันไร้คู่แข่งในโลกที่ขับเคลื่อนด้วยความสามารถในการต่อสู้ ทว่าเบื้องหลังกลับโดดเดี่ยวและไร้จุดหมาย หลังจากเสียชีวิต เขาได้เกิดใหม่เป็น 'อาร์เธอร์ เลย์วิน' ในโลกแฟนตาซีใบใหม่ที่เต็มไปด้วยเวทมนตร์และสัตว์ประหลาด",
+    "author": "TurtleMe",
+    "artist": "Fuyuki23",
+    "status": "Ongoing",
+    "categories": [
+      "แฟนตาซี",
+      "เกิดใหม่",
+      "เวทมนตร์",
+      "แอ็กชัน",
+      "ผจญภัย"
+    ],
+    "rating": 4.92,
+    "views": 41230,
+    "createdAt": "2026-09-17T04:09:49.136Z",
+    "updatedAt": "2026-11-14T04:09:49.136Z",
+    "chapters": [
+      {
+        "id": "tbate-ch-01",
+        "mangaId": "the-beginning-after-the-end",
+        "chapterNumber": "1",
+        "title": "ชีวิตใหม่ในโลกเวทมนตร์",
+        "pages": [
+          "https://images.unsplash.com/photo-1514539079130-25950c84af65?w=800&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800&auto=format&fit=crop&q=80"
+        ],
+        "createdAt": "2026-09-17T04:09:49.136Z",
+        "updatedAt": "2026-09-17T04:09:49.136Z"
+      }
+    ]
+  }
+]
