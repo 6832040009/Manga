@@ -1337,6 +1337,7 @@
     updateCoverPreview(isEdit ? manga.coverUrl : '');
 
     openModal(DOM.mangaFormModal);
+    lucide.createIcons({ root: DOM.mangaFormModal });
   }
 
   function updateCoverPreview(url) {
@@ -1405,7 +1406,9 @@
     };
 
     const saveBtn = document.getElementById('saveMangaBtn');
-    saveBtn.disabled = true;
+    const headerSaveBtn = document.getElementById('headerSaveMangaBtn');
+    if (saveBtn) saveBtn.disabled = true;
+    if (headerSaveBtn) headerSaveBtn.disabled = true;
 
     try {
       if (id) {
@@ -1422,7 +1425,8 @@
     } catch (err) {
       showToast(err.message, 'error');
     } finally {
-      saveBtn.disabled = false;
+      if (saveBtn) saveBtn.disabled = false;
+      if (headerSaveBtn) headerSaveBtn.disabled = false;
     }
   });
 
@@ -1550,6 +1554,7 @@
     renderChapterPagesPreview();
 
     openModal(DOM.chapterFormModal);
+    lucide.createIcons({ root: DOM.chapterFormModal });
   }
 
   function renderChapterPagesPreview() {
@@ -1678,7 +1683,9 @@
     };
 
     const saveBtn = document.getElementById('saveChapterBtn');
-    saveBtn.disabled = true;
+    const headerSaveBtn = document.getElementById('headerSaveChapterBtn');
+    if (saveBtn) saveBtn.disabled = true;
+    if (headerSaveBtn) headerSaveBtn.disabled = true;
 
     try {
       if (chapterId) {
@@ -1696,7 +1703,8 @@
     } catch (err) {
       showToast(err.message, 'error');
     } finally {
-      saveBtn.disabled = false;
+      if (saveBtn) saveBtn.disabled = false;
+      if (headerSaveBtn) headerSaveBtn.disabled = false;
     }
   });
 

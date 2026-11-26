@@ -2,35 +2,47 @@
   {
     "id": "nano-machine",
     "title": "Nano Machine",
-    "originalTitle": "?? ??",
+    "originalTitle": "나노 마신 (Nano Mashin)",
     "type": "Manhwa",
     "coverUrl": "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=600",
     "bannerUrl": "",
-    "description": "???????????????????? ???????????????????????????????????????????????",
+    "description": "ชอนยออุน องค์ชายลำดับที่เจ็ดแห่งพรรคมาร ผู้ถูกตามล่าสังหารตั้งแต่เด็ก ได้รับการช่วยเหลือจากทายาทในอนาคตที่ฉีด 'นาโนแมชชีน' เข้าสู่ร่างกาย ทำให้เขาสามารถเรียนรู้วรยุทธ์ขั้นสูงได้อย่างก้าวกระโดด และเริ่มต้นเส้นทางการทวงคืนความยุติธรรมและก้าวสู่ตำแหน่งประมุขพรรคมาร!",
     "author": "Hanjung Wolya",
     "artist": "GGBG",
     "status": "Ongoing",
     "categories": [
-      "???????",
-      "??????????",
-      "???????"
+      "แอ็กชัน",
+      "กำลังภายใน",
+      "แฟนตาซี",
+      "ไซไฟ"
     ],
     "rating": 5,
-    "views": 6,
+    "views": 15,
     "createdAt": "2026-11-16T04:11:46.905Z",
-    "updatedAt": "2026-11-16T04:11:46.910Z",
+    "updatedAt": "2026-11-19T05:44:47.735Z",
     "chapters": [
       {
         "id": "ch-mwiqyb8e-m1n2",
         "mangaId": "nano-machine",
         "chapterNumber": "1",
-        "title": "??????????????????",
+        "title": "การพบกับนาโนแมชชีน",
         "pages": [
           "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800",
           "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800"
         ],
         "createdAt": "2026-11-16T04:11:46.910Z",
         "updatedAt": "2026-11-16T04:11:46.910Z"
+      },
+      {
+        "id": "ch-mwn4kuiw-081s",
+        "mangaId": "nano-machine",
+        "chapterNumber": "2",
+        "title": "เริ่มฝึกวรยุทธ์",
+        "pages": [
+          "/uploads/chapters/9d2bb8873eb3dbcd006472fde5bb9095.jpg"
+        ],
+        "createdAt": "2026-11-19T05:44:18.056Z",
+        "updatedAt": "2026-11-19T05:44:18.056Z"
       }
     ]
   },

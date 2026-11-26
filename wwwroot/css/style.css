@@ -940,7 +940,8 @@ input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 24px 16px;
+  overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s, visibility 0.25s;
@@ -957,13 +958,24 @@ input, select, textarea {
   border-radius: var(--radius-lg);
   width: 100%;
   max-width: 650px;
-  max-height: 90vh;
+  max-height: calc(100vh - 48px);
+  height: auto;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-lg);
   overflow: hidden;
   transform: translateY(20px);
   transition: transform 0.25s;
+  margin: auto;
+}
+
+/* Ensure forms inside modal-content behave as proper flex column */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .modal-backdrop.show .modal-content {
@@ -979,11 +991,15 @@ input, select, textarea {
 }
 
 .modal-header {
-  padding: 18px 24px;
+  padding: 16px 24px;
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+  background-color: var(--bg-secondary);
+  z-index: 5;
 }
 
 .modal-header h2 {
@@ -991,10 +1007,35 @@ input, select, textarea {
   font-weight: 700;
 }
 
+.modal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .modal-body {
   padding: 24px;
   overflow-y: auto;
+  overscroll-behavior: contain;
   flex: 1;
+  min-height: 0;
+}
+
+/* Modal Body Custom Scrollbar */
+.modal-body::-webkit-scrollbar {
+  width: 10px;
+}
+.modal-body::-webkit-scrollbar-track {
+  background: rgba(11, 14, 20, 0.6);
+  border-radius: 5px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 5px;
+  border: 2px solid var(--bg-secondary);
+}
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
 }
 
 .modal-footer {
@@ -1002,8 +1043,14 @@ input, select, textarea {
   border-top: 1px solid var(--border-color);
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 12px;
   background-color: var(--bg-tertiary);
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.25);
 }
 
 /* Forms */

@@ -224,9 +224,15 @@
     <div class="modal-content modal-lg">
       <div class="modal-header">
         <h2 id="mangaFormTitle">เพิ่มมังงะ/มังฮวาใหม่</h2>
-        <button class="btn-icon closeModalBtn">
-          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
-        </button>
+        <div class="modal-header-actions">
+          <button type="submit" form="mangaForm" class="btn btn-primary btn-sm" id="headerSaveMangaBtn" title="บันทึกข้อมูลเรื่อง">
+            <i data-lucide="save" style="width: 15px; height: 15px;"></i>
+            <span>บันทึก</span>
+          </button>
+          <button type="button" class="btn-icon closeModalBtn" title="ปิดหน้าต่าง">
+            <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+          </button>
+        </div>
       </div>
       <form id="mangaForm">
         <input type="hidden" id="mangaFormId">
@@ -307,9 +313,12 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary closeModalBtn">ยกเลิก</button>
-          <button type="submit" class="btn btn-primary" id="saveMangaBtn">
-            <i data-lucide="check" style="width: 16px; height: 16px;"></i>
+          <button type="button" class="btn btn-secondary closeModalBtn">
+            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+            <span>ยกเลิก</span>
+          </button>
+          <button type="submit" class="btn btn-primary" id="saveMangaBtn" style="padding: 10px 22px; font-size: 0.95rem;">
+            <i data-lucide="save" style="width: 18px; height: 18px;"></i>
             <span>บันทึกข้อมูลเรื่อง</span>
           </button>
         </div>
@@ -355,9 +364,15 @@
     <div class="modal-content modal-lg">
       <div class="modal-header">
         <h2 id="chapterFormTitle">เพิ่มตอนใหม่</h2>
-        <button class="btn-icon closeSubModalBtn">
-          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
-        </button>
+        <div class="modal-header-actions">
+          <button type="submit" form="chapterForm" class="btn btn-primary btn-sm" id="headerSaveChapterBtn" title="บันทึกตอน">
+            <i data-lucide="save" style="width: 15px; height: 15px;"></i>
+            <span>บันทึก</span>
+          </button>
+          <button type="button" class="btn-icon closeSubModalBtn" title="ปิดหน้าต่าง">
+            <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+          </button>
+        </div>
       </div>
       <form id="chapterForm">
         <input type="hidden" id="chapterFormMangaId">
@@ -407,9 +422,12 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary closeSubModalBtn">ยกเลิก</button>
-          <button type="submit" class="btn btn-primary" id="saveChapterBtn">
-            <i data-lucide="check" style="width: 16px; height: 16px;"></i>
+          <button type="button" class="btn btn-secondary closeSubModalBtn">
+            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+            <span>ยกเลิก</span>
+          </button>
+          <button type="submit" class="btn btn-primary" id="saveChapterBtn" style="padding: 10px 22px; font-size: 0.95rem;">
+            <i data-lucide="save" style="width: 18px; height: 18px;"></i>
             <span>บันทึกตอน</span>
           </button>
         </div>
